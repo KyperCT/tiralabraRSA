@@ -8,7 +8,7 @@ RSA is a widely used and effective method of encryption, which allows encrypted 
 
 For data structures, the project will use standard python implementations for all required structures (such as large integers). For algorithms, the project will use standard library 
 operations (addition, subtraction, multiplication, division, modulo, exponentiation etc.) for large numbers. The project will implement RSA decryption and encryption 
-algorithms, as well as RSA key generation. Both will include the implementation of multiple other algorithms, such as searching for large primes, gcd and lcm and 
+algorithms, as well as RSA key generation. Key generation will include the implementation of multiple other algorithms, such as searching for large primes, gcd and lcm and 
 the extended Euclidian algorithm.
 
 ### Input and output
