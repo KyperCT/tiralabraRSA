@@ -25,10 +25,10 @@ def decrypt(cipher, key):
     return cipher, key
 
 
-def generate_keys() -> tuple[tuple[int, int], int]:
+def generate_keys() -> tuple[int, int, int]:
     """
     INCOMPLETE. Generate public and private key for RSA.
-    :return: Public key, private key
+    :return: n, e, d
     """
     pqset = {107017885421, 107017875299}
     p = pqset.pop()
@@ -38,4 +38,4 @@ def generate_keys() -> tuple[tuple[int, int], int]:
     e = 65537
     d = ef.d_from_extended_gcd(e, lambdan)
     del p, q, lambdan
-    return (n, e), d
+    return n, e, d

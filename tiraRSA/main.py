@@ -1,5 +1,6 @@
 import argparse
 import rsa
+from sys import byteorder
 
 
 def main():
@@ -36,7 +37,12 @@ def main():
     if out is not None:
         print(out)
     if keys is not None:
-        print(keys)
+        with open("input-output/idrsa.pub", "w+") as f:
+            f.write(f"tira-rsa {str(keys[0].to_bytes(512, byteorder=byteorder).hex())}=="
+                    f"{str(keys[1].to_bytes(3, byteorder=byteorder).hex())}")
+        with open("input-output/idrsa", "w+") as f:
+            f.write(f"tira-rsa {str(keys[0].to_bytes(512, byteorder=byteorder).hex())}=="
+                    f"{str(keys[2].to_bytes(128, byteorder=byteorder).hex())}")
 
 
 if __name__ == "__main__":
