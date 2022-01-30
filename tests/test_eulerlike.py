@@ -13,8 +13,7 @@ class TestEulerlike(unittest.TestCase):
     def test_intdiv_on_large_remainder(self):
         self.assertEqual(ef.intdiv(7854334, 46532), 168)
 
-    def test_extended_gcd_correct_output_1(self):
-        self.assertEqual(ef.d_from_extended_gcd(240, 46), -9)
-
-    def test_extended_gcd_correct_output_2(self):
-        self.assertEqual(ef.d_from_extended_gcd(65537, 5726413358266606177580),  -1875979901460000223273)
+    def test_extended_gcd_correct_output(self):
+        e = 65537
+        lambdan = 5726413358266606177580
+        self.assertEqual((e * ef.d_from_extended_gcd(e, lambdan)) % lambdan,  1)

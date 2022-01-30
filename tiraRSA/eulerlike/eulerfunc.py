@@ -25,7 +25,7 @@ def lcm():
     pass
 
 
-def d_from_extended_gcd(e: int, m: int) -> int:
+def d_from_extended_gcd(e: int, m: int):
     """
     Partial implementation of the extended euclidian algorithm for discovering d from ed = 1 (mod l(n))
     (Based on wikipedia pseudocode: https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm )
@@ -41,4 +41,4 @@ def d_from_extended_gcd(e: int, m: int) -> int:
         old_r, r = r, (old_r - (q * r))
         old_s, s = s, (old_s - (q * s))
 
-    return old_s
+    return abs(old_s)
