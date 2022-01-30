@@ -1,6 +1,4 @@
-import primes.prandom as pr
 import eulerlike.eulerfunc as ef
-
 # temporary imports
 import math
 
@@ -25,12 +23,11 @@ def decrypt(cipher, key):
     return cipher, key
 
 
-def generate_keys() -> tuple[int, int, int]:
+def generate_keys(pqset: set) -> tuple[int, int, int]:
     """
-    INCOMPLETE. Generate public and private key for RSA.
+    Generate public and private key for RSA with given set of primes
     :return: n, e, d
     """
-    pqset = {107017885421, 107017875299}
     p = pqset.pop()
     q = pqset.pop()
     n = p * q

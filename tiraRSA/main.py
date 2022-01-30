@@ -1,5 +1,6 @@
 import argparse
 import rsa
+import primes.prandom as pr
 from sys import byteorder
 
 
@@ -32,7 +33,7 @@ def main():
             key = f.read()
         out = rsa.decrypt(cipher, key)
     if args.generate:
-        keys = rsa.generate_keys()
+        keys = rsa.generate_keys({107017885421, 107017875299})
 
     if out is not None:
         print(out)
