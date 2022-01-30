@@ -17,3 +17,9 @@ class TestEulerlike(unittest.TestCase):
         e = 65537
         lambdan = 5726413358266606177580
         self.assertEqual((e * ef.d_from_extended_gcd(e, lambdan)) % lambdan,  1)
+
+    def test_lcm_correct_output_1(self):
+        self.assertEqual(ef.lcm(13, 7), 91)
+
+    def test_lcm_correct_output_2(self):
+        self.assertEqual(ef.lcm(107017885420, 107017875298), 5726413358266606177580)

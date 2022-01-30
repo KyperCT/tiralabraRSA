@@ -1,6 +1,5 @@
-import eulerlike.eulerfunc as ef
-# temporary imports
-import math
+from .eulerlike import eulerfunc as ef
+
 
 
 def encrypt(text, key):
@@ -23,7 +22,7 @@ def decrypt(cipher, key):
     return cipher, key
 
 
-def generate_keys(pqset: set) -> tuple[int, int, int]:
+def generate_keys(pqset: set) -> tuple:
     """
     Generate public and private key for RSA with given set of primes
     :return: n, e, d
@@ -31,7 +30,7 @@ def generate_keys(pqset: set) -> tuple[int, int, int]:
     p = pqset.pop()
     q = pqset.pop()
     n = p * q
-    lambdan = math.lcm(p-1, q-1)
+    lambdan = ef.lcm(p-1, q-1)
     e = 65537
     d = ef.d_from_extended_gcd(e, lambdan)
     del p, q, lambdan

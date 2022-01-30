@@ -1,3 +1,6 @@
+# temporary imports
+import math
+
 
 def intdiv(x: int, y: int) -> int:
     """
@@ -17,12 +20,14 @@ def gcd():
     pass
 
 
-def lcm():
+def lcm(a, b):
     """
-    Todo
-    :return:
+    Lowest common multiple calculated with GCD
+    :param a: integer
+    :param b: integer
+    :return: lcm for a and b
     """
-    pass
+    return (int((abs(a)) / (math.gcd(a, b)))) * abs(b)
 
 
 def d_from_extended_gcd(e: int, m: int):
