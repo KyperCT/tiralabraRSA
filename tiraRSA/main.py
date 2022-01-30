@@ -3,6 +3,10 @@ import rsa
 
 
 def main():
+    """
+    Main IO function; Takes arguments from cmdline, runs other functions based on arguments.
+    :return: None
+    """
     parser = argparse.ArgumentParser(description='Tool for RSA keygen and encrypt/decrypt')
     options = parser.add_mutually_exclusive_group()
     options.add_argument('--encrypt', nargs=2, help='[txt file] [public key]')
@@ -12,6 +16,7 @@ def main():
     args = parser.parse_args()
 
     out = None
+    keys = None
 
     if args.encrypt is not None:
         with open(args.encrypt[0], "r") as f:
@@ -30,6 +35,8 @@ def main():
 
     if out is not None:
         print(out)
+    if keys is not None:
+        print(keys)
 
 
 if __name__ == "__main__":

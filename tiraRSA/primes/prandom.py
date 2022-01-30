@@ -14,8 +14,5 @@ def random_primes(n: int) -> set:
     out = set()
     while len(out) < n:
         r = generator.randbytes(generator.randint(64, 68))
-        # TEMP
-        out.add(5)
-        out.add(7)
-        # out.add(search.prime_from_seed(int.from_bytes(r, byteorder)))
+        out.add(search.prime_from_seed(int.from_bytes(r, byteorder)))
     return out
