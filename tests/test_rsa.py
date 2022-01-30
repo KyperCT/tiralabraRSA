@@ -1,5 +1,5 @@
 import unittest
-import tiraRSA.rsa as tr
+from tiraRSA import rsa as tr
 
 
 class TestRsa(unittest.TestCase):
