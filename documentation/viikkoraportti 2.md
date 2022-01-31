@@ -1,4 +1,4 @@
-## Viikkoraportti 1
+## Viikkoraportti 2
 
 ### Viikon saavutukset
 RSA avaingeneraation perusalgoritmi on noin suunnilleen toteutettu. GCD toimii vielä peruskirjaston funktiolla, ja alkulukujen satunnaisgeneraatiota ei ole vielä aloitettu, mutta muuten avaingeneraation algoritmit toimii omilla toteutuksilla. Salauksen ja Epäsalauksen algoritmit ovat vielä aloittamatta. Koodilla on mielekkäitä testejä, muttei vielä kovin montaa. Perusasiat ne kyllä testaa, ja on myös muutaman buginkin osoittanut, eli myös palvelee tarkoitustaan. Codecov on myös konfiguroitu.
