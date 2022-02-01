@@ -1,5 +1,3 @@
-# temporary imports
-import math
 
 
 def intdiv(x: int, y: int) -> int:
@@ -12,25 +10,33 @@ def intdiv(x: int, y: int) -> int:
     return int(x/y)
 
 
-def gcd():
+def gcd(a: int, b: int) -> int:
     """
-    Todo
-    :return:
+    Greatest common divisor implemented via the Euclidian algorithm
+    :param a: Integer
+    :param b: Integer
+    :return: gcd for a and b
     """
-    pass
+    old_r, r = a, b
+
+    while r != 0:
+        q = intdiv(old_r, r)
+        old_r, r = r, (old_r - (q * r))
+
+    return abs(old_r)
 
 
-def lcm(a, b):
+def lcm(a: int, b: int) -> int:
     """
     Lowest common multiple calculated with GCD
     :param a: integer
     :param b: integer
     :return: lcm for a and b
     """
-    return (int((abs(a)) / (math.gcd(a, b)))) * abs(b)
+    return (int((abs(a)) / (gcd(a, b)))) * abs(b)
 
 
-def d_from_extended_gcd(e: int, m: int):
+def d_from_extended_gcd(e: int, m: int) -> int:
     """
     Partial implementation of the extended euclidian algorithm for discovering d from ed = 1 (mod l(n))
     (Based on wikipedia pseudocode: https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm )

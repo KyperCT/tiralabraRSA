@@ -1,7 +1,6 @@
 from .eulerlike import eulerfunc as ef
 
 
-
 def encrypt(text, key):
     """
     Todo
