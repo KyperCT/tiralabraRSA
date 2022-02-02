@@ -1,7 +1,9 @@
 import argparse
-import rsa
-import primes.prandom as pr
+from . import rsa
+from .primes import prandom
 from sys import byteorder
+import json
+import base64
 
 
 def main():
@@ -24,13 +26,13 @@ def main():
         with open(args.encrypt[0], "r") as f:
             txt = f.read()
         with open(args.encrypt[1], "r") as f:
-            key = f.read()
+            key = json.loads(f.read())
         out = rsa.encrypt(txt, key)
     if args.decrypt is not None:
         with open(args.decrypt[0], "r") as f:
             cipher = f.read()
         with open(args.decrypt[1], "r") as f:
-            key = f.read()
+            key = json.loads(f.read())
         out = rsa.decrypt(cipher, key)
     if args.generate:
         keys = rsa.generate_keys({107017885421, 107017875299})
@@ -38,12 +40,14 @@ def main():
     if out is not None:
         print(out)
     if keys is not None:
-        with open("idrsa.pub", "w+") as f:
-            f.write(f"tira-rsa {str(keys[0].to_bytes(512, byteorder=byteorder).hex())}=="
-                    f"{str(keys[1].to_bytes(3, byteorder=byteorder).hex())}")
-        with open("idrsa", "w+") as f:
-            f.write(f"tira-rsa {str(keys[0].to_bytes(512, byteorder=byteorder).hex())}=="
-                    f"{str(keys[2].to_bytes(128, byteorder=byteorder).hex())}")
+        with open("publicrsa", "w+") as f:
+            json.dump({"Name": "Publickey1",
+                       "Public exponent": base64.b64encode(keys[1].to_bytes(4, byteorder=byteorder)).decode('ascii'),
+                       "Modulus": base64.b64encode(keys[0].to_bytes(128, byteorder=byteorder)).decode('ascii')}, f)
+        with open("privatersa", "w+") as f:
+            json.dump({"Name": "Privatekey1",
+                       "Private exponent": base64.b64encode(keys[2].to_bytes(128, byteorder=byteorder)).decode('ascii'),
+                       "Modulus": base64.b64encode(keys[0].to_bytes(128, byteorder=byteorder)).decode('ascii')}, f)
 
 
 if __name__ == "__main__":
