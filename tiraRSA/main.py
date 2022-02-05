@@ -1,10 +1,10 @@
 import argparse
 from . import rsa
 from .primes import prandom
-from sys import byteorder
 import json
 import base64
 
+byteorder = "little"
 
 def main():
     """
@@ -27,13 +27,19 @@ def main():
             txt = f.read()
         with open(args.encrypt[1], "r") as f:
             key = json.loads(f.read())
-        out = rsa.encrypt(txt, key)
+        n = int.from_bytes(base64.b64decode(key["Modulus"].encode('ascii')), byteorder=byteorder)
+        e = int.from_bytes(base64.b64decode(key["Public exponent"].encode('ascii')), byteorder=byteorder)
+        out = rsa.encrypt(txt, n, e)
+
     if args.decrypt is not None:
         with open(args.decrypt[0], "r") as f:
-            cipher = f.read()
+            cipher = int(f.read())
         with open(args.decrypt[1], "r") as f:
             key = json.loads(f.read())
-        out = rsa.decrypt(cipher, key)
+        n = int.from_bytes(base64.b64decode(key["Modulus"].encode('ascii')), byteorder=byteorder)
+        d = int.from_bytes(base64.b64decode(key["Private exponent"].encode('ascii')), byteorder=byteorder)
+        out = rsa.decrypt(cipher, n, d)
+
     if args.generate:
         keys = rsa.generate_keys({107017885421, 107017875299})
 
