@@ -1,3 +1,6 @@
+"""
+Looking for primes
+"""
 
 
 def prime_from_seed(n: int) -> int:

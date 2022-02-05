@@ -1,40 +1,51 @@
+"""
+Implementation of RSA
+"""
 from .eulerlike import eulerfunc as ef
 
 
-def text_to_integer(t):
+def text_to_integer(text):
+    """
+    Converts ASCII strings into large integers.
+    :param text: String of ASCII letters
+    :return: Integer representation of input string
+    """
     return int('1' + "".join(
-        list(map((lambda x: str(ord(x)).zfill(3)), t))
+        list(map((lambda x: str(ord(x)).zfill(3)), text))
     ))
 
 
-def integer_to_text(i):
-    it = str(i)[1:]
-    numlist = [it[3*n:3*(n+1)] for n in range(0, int(len(it)/3))]
+def integer_to_text(int_text):
+    """
+    Converts an integer into a string. Inverse function to text_to_integer.
+    :param int_text: Integer representation of string (text_to_integer)
+    :return: String
+    """
+    i = str(int_text)[1:]
+    numlist = [i[3*n:3*(n+1)] for n in range(0, int(len(i)/3))]
     return "".join(list(map((lambda x: chr(int(x))), numlist)))
 
 
 def encrypt(text: str, n: int, e: int) -> int:
     """
-    Todo
+    Encrypts files with RSA.
     :param text: Text to be encrypted
     :param n: Modulus
     :param e: Public exponent
     :return: Cipher integer
     """
-    print(text_to_integer(text))
     return pow(text_to_integer(text), e, n)
 
 
 def decrypt(cipher: int, n: int, d: int) -> str:
     """
-    Todo
+    Decrypts files with RSA; Inverse function to rsa.encrypt
     :param cipher: ciphertext to be decrypted
     :param n: Modulus
     :param d: Private exponent
     :return: Text string
     """
     m = pow(cipher, d, n)
-    print(m)
     return integer_to_text(m)
 
 

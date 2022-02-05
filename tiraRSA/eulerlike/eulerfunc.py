@@ -1,3 +1,6 @@
+"""
+Implementation of euclidian algorithms
+"""
 
 
 def intdiv(x: int, y: int) -> int:

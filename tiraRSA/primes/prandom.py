@@ -1,6 +1,10 @@
+"""
+Ramdomized search for primes
+"""
 import random
-from . import search
 from sys import byteorder
+from . import search
+
 
 generator = random.SystemRandom()
 
