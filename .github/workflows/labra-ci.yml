@@ -21,6 +21,8 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pytest coverage
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Check quality
+        run: pylint tiraRSA/
       - name: Run tests
         run: coverage run --branch -m pytest
       - name: Create coverage report
