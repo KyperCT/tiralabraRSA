@@ -1,4 +1,4 @@
-import tiraRSA.eulerlike.eulerfunc as ef
+import tiraRSA.mathfuncs.eulerfunc as ef
 import unittest
 
 

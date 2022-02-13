@@ -1,7 +1,7 @@
 """
 Implementation of RSA
 """
-from .eulerlike import eulerfunc as ef
+from .mathfuncs import eulerfunc as ef
 
 
 def text_to_integer(text):
