@@ -43,7 +43,7 @@ def main():
         out = rsa.decrypt(cipher, n, d)
 
     if args.generate:
-        keys = rsa.generate_keys({107017885421, 107017875299})
+        keys = rsa.generate_keys(prandom.random_primes(2))
 
     if out is not None:
         print(out)

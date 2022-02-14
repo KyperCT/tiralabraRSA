@@ -1,17 +1,9 @@
 import tiraRSA.mathfuncs.eulerfunc as ef
+import tiraRSA.mathfuncs.factor as mf
 import unittest
 
 
-class TestEulerlike(unittest.TestCase):
-
-    def test_intdiv_on_no_remainder(self):
-        self.assertEqual(ef.intdiv(8, 4), 2)
-
-    def test_intdiv_on_small_remainder(self):
-        self.assertEqual(ef.intdiv(24217, 7352), 3)
-
-    def test_intdiv_on_large_remainder(self):
-        self.assertEqual(ef.intdiv(7854334, 46532), 168)
+class TestEulerfunc(unittest.TestCase):
 
     def test_extended_gcd_correct_output(self):
         e = 65537
@@ -29,3 +21,16 @@ class TestEulerlike(unittest.TestCase):
 
     def test_lcm_correct_output_2(self):
         self.assertEqual(ef.lcm(107017885420, 107017875298), 5726413358266606177580)
+
+
+class TestFactor(unittest.TestCase):
+    def test_fo2_on_power_of_2(self):
+        self.assertEqual(mf.factor_out_2(512), (9, 1))
+
+    def test_fo2_on_some_odd_number(self):
+        self.assertEqual(mf.factor_out_2(56), (3, 7))
+
+    def test_fo2_on_large_number(self):
+        large_number = 18806789087513417307097914989620030248719228414742150346476112113419340441583597412846759474095436243621936173649476569006671220348265338081724505017379
+        r, d = mf.factor_out_2(large_number-1)
+        self.assertEqual((2**r)*d+1, large_number)

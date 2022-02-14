@@ -2,7 +2,6 @@
 Ramdomized search for primes
 """
 import random
-from sys import byteorder
 from ..mathfuncs import factor
 
 generator = random.SystemRandom()
@@ -16,34 +15,35 @@ def is_probably_prime(n: int, trials=10) -> bool:
     :param trials: Number of trials before acceptance; probability of false positive is 1/(2^[trials])
     :return: True/False
     """
+    r, d = factor.factor_out_2(n-1)
+    for _ in range(0, trials):
+        witness = generator.randint(2, n-2)
+        x = pow(witness, d, n)
+        if x == 1 or x == n-1:
+            continue
+        for _ in range(0, r-1):
+            x = pow(x, 2, n)
+            if x == n-1:
+                break
+        else:
+            return False
     return True
 
 
-def prime_from_seed(n: int) -> int:
-    """
-    Todo
-    :param n:
-    :return:
-    """
-    if n % 2 == 0:
-        n -= 1
-    while True:
-        if is_probably_prime(n):
-            return n
-        else:
-            n += 2
-
-
-def random_primes(n: int, i0: int = 64, i1: int = 128) -> set:
+def random_primes(n: int, b=512) -> set:
     """
     Generate almost cryptographically secure distinct random primes.
     :param n: Number of primes to generate
-    :param i0: Minimum number of bytes in prime default 64
-    :param i1: Maximum number of bytes in prime default 128
+    :param b: number of bits in prime
     :return: set of primes
     """
     out = set()
+    minimum = pow(2, b - 1)
+    maximum = pow(2, b) - 1
     while len(out) < n:
-        r = generator.randbytes(generator.randint(i0, i1))
-        out.add(prime_from_seed(int.from_bytes(r, byteorder)))
+        num = generator.randint(minimum, maximum)
+        if num % 2 == 0:
+            num += 1
+        if is_probably_prime(num):
+            out.add(num)
     return out
