@@ -4,7 +4,8 @@ Main IO file; used for cmd input
 import json
 import base64
 import argparse
-from . import rsa
+from .rsa import rsa_interface as ri
+from .rsa import rsamath as rm
 from .primes import prandom
 
 
@@ -21,33 +22,31 @@ def main():
 
     args = parser.parse_args()
 
-    out = None
-    keys = None
-
     if args.encrypt is not None:
-        with open(args.encrypt[0], "r", encoding="ascii") as f:
+        with open(args.encrypt[0], "r", encoding="latin-1") as f:
             txt = f.read()
         with open(args.encrypt[1], "r", encoding="ascii") as f:
-            key = json.loads(f.read())
+            key = json.load(f)
         n = int.from_bytes(base64.b64decode(key["Modulus"].encode('ascii')), byteorder="little")
         e = int.from_bytes(base64.b64decode(key["Public exponent"].encode('ascii')), byteorder="little")
-        out = rsa.encrypt(txt, n, e)
+        out = ri.encrypt_string(txt, n, e)
+        with open("ciphertext", "w", encoding="ascii") as outf:
+            json.dump({"ciphers": out}, outf)
 
     if args.decrypt is not None:
         with open(args.decrypt[0], "r", encoding="ascii") as f:
-            cipher = int(f.read())
+            cipher = json.load(f)["ciphers"]
         with open(args.decrypt[1], "r", encoding="ascii") as f:
-            key = json.loads(f.read())
+            key = json.load(f)
         n = int.from_bytes(base64.b64decode(key["Modulus"].encode('ascii')), byteorder="little")
         d = int.from_bytes(base64.b64decode(key["Private exponent"].encode('ascii')), byteorder="little")
-        out = rsa.decrypt(cipher, n, d)
+        dec = ri.decrypt_to_string(cipher, n, d)
+        with open("original.txt", "w", encoding="latin-1") as outf:
+            outf.write(dec)
 
     if args.generate:
-        keys = rsa.generate_keys(prandom.random_primes(2))
-
-    if out is not None:
-        print(out)
-    if keys is not None:
+        primes = prandom.random_primes(2)
+        keys = rm.generate_keys(primes)
         with open("publicrsa", "w+", encoding="ascii") as f:
             json.dump({"Name": "Publickey1",
                        "Public exponent": base64.b64encode(keys[1].to_bytes(4, byteorder="little")).decode('ascii'),

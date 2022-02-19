@@ -7,7 +7,7 @@ from ..mathfuncs import factor
 generator = random.SystemRandom()
 
 
-def is_probably_prime(n: int, trials=10) -> bool:
+def is_probably_prime(n: int, trials=50) -> bool:
     """
     Miller Rabin primality test
     https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
