@@ -1,4 +1,4 @@
-## Viikkoraportti 3
+## Viikkoraportti 4
 
 ### Viikon saavutukset
 Alkulukujen generaatio toteutettu, ja bugeja korjattu vanhasta koodista. Nykyiseltään ohjelma voi cryptata ~300 merkin viestin.
