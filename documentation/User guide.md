@@ -51,19 +51,17 @@ Encryption is done with the command:
 ```
 python -m tiraRSA.main --encrypt [text_file] [public_key]
 ```
-This command outputs into the cmdline the ciphertext for the given text using the given key. Maximum length encryptable is at current time ~300 ASCII characters. 
+This command outputs into a file called 'ciphertext' the ciphertext for the given text using the given key. Can encrypt ascii / latin-1 characters.
 
-(printing result is temporary)
 
 ### Decryption
 
 Decryption is done with the command:
 ```
-python -m tiraRSA.main --decrypt [cipher_as_text_file] [private_key]
+python -m tiraRSA.main --decrypt [ciphertext_file] [private_key]
 ```
-This command outputs into the cmdline the original message for the given cipher in a text file using the given key.
+This command outputs into a file named 'original.txt' the original message for the given cipher in a text file using the given key.
 
-(printing result is temporary)
 
 ## Running tests
 ```
