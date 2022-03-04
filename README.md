@@ -7,6 +7,8 @@
 
 [Implementation Document](https://github.com/KyperCT/tiralabraRSA/blob/main/documentation/implementationdocument.md)
 
+[Testing Document](https://github.com/KyperCT/tiralabraRSA/blob/main/documentation/testingdocument.md)
+
 [User Guide](https://github.com/KyperCT/tiralabraRSA/blob/main/documentation/User%20guide.md)
 
 ---
