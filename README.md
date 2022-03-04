@@ -13,4 +13,4 @@
 
 ---
 
-[Uusin viikkoraportti](https://github.com/KyperCT/tiralabraRSA/blob/main/documentation/viikkoraportti%205.md)
+[Uusin viikkoraportti](https://github.com/KyperCT/tiralabraRSA/blob/main/documentation/viikkoraportti%206.md)
