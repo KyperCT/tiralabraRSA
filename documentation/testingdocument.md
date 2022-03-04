@@ -2,7 +2,24 @@
 
 ## Unit test coverage
 
-(report here)
+Report generated with coverage.py
+
+| Module | statements | missing | excluded | branches | partial | coverage |
+|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| tests/\_\_init__.py | 0 | 0 | 0 | 0 | 0 | 100% |
+| tests/test_mathfuncs.py | 25 | 0 | 0 | 4 | 0 | 100% |
+| tests/test_prandom.py | 25 | 0 | 0 | 8 | 0 | 100% |
+| tests/test_rsa.py | 68 | 0 | 0 | 6 | 0 | 100% |
+| tiraRSA/\_\_init__.py | 0 | 0 | 0 | 0 | 0 | 100% |
+| tiraRSA/mathfuncs/\_\_init__.py | 0 | 0 | 0 | 0 | 0 | 100% |
+| tiraRSA/mathfuncs/eulerfunc.py | 16 | 0 | 0 | 4 | 0 | 100% |
+| tiraRSA/mathfuncs/factor.py | 7 | 0 | 0 | 2 | 0 | 100% |
+| tiraRSA/primes/\_\_init__.py | 0 | 0 | 0 | 0 | 0 | 100% |
+| tiraRSA/primes/prandom.py | 27 | 0 | 0 | 14 | 0 | 100% |
+| tiraRSA/rsa/\_\_init__.py | 0 | 0 | 0 | 0 | 0 | 100% |
+| tiraRSA/rsa/rsa_interface.py | 36 | 0 | 0 | 16 | 0 | 100% |
+| tiraRSA/rsa/rsamath.py | 14 | 0 | 0 | 0 | 0 | 100% |
+| Total | 218 | 0 | 0 | 54 | 0 | 100% |
 
 ## Correctness
 
@@ -20,7 +37,7 @@ The conversion functions are tested through being given a variety of inputs, and
 
 ### RSA math
 
-The math component of the RSA subpackage has the mathematical implementations of encryption, decryption and key generation. Encryption and decryption are implemented rather directly as large number operations from the standard library, so they (will be) tested with a few tests making sure the math operations are producing the outputs expected, with correct numbers from other trusted math programs. 
+The math component of the RSA subpackage has the mathematical implementations of encryption, decryption and key generation. Encryption and decryption are implemented rather directly as large number operations from the standard library, so they are tested with a few tests making sure the math operations are producing the outputs expected, with correct numbers from other trusted math programs. 
 
 (WIP key generation tested by generating keys with same primes somewhere else. This may be impossible)
 
