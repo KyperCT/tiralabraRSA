@@ -1,5 +1,6 @@
 import unittest
 import json
+from pathlib import Path
 from tiraRSA.rsa import rsa_interface as tri
 from tiraRSA.rsa import rsamath as trm
 
@@ -62,7 +63,8 @@ class TestRsaMath(unittest.TestCase):
         """
         corrects has correct outputs generated with Wolfram Mathematica
         """
-        with open("data/rsacorrect.json") as ansjson:
+
+        with (Path(__file__).parent / "data/rsacorrect.json").open() as ansjson:
             self.corrects = json.load(ansjson)
 
         primes = {

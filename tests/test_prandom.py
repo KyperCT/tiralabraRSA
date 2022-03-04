@@ -1,5 +1,6 @@
 import unittest
 import json
+from pathlib import Path
 from tiraRSA.primes import prandom as tp
 
 
@@ -9,9 +10,9 @@ class TestPrandom(unittest.TestCase):
         List of primes generated with Wolfram Mathematica
         List of composites generated with Wolfram Mathematica
         """
-        with open("data/prime.json") as primejson:
+        with (Path(__file__).parent / "data/prime.json").open() as primejson:
             self.list_primes = json.load(primejson)
-        with open("data/composite.json") as compositejson:
+        with (Path(__file__).parent / "data/composite.json").open() as compositejson:
             self.list_composites = json.load(compositejson)
 
     def test_prime_test_correct_on_small_prime(self):
