@@ -6,7 +6,7 @@
 
 ## Correctness
 
-Testing for this project is focused on correctness testing, as performance testing or comparative testing would not be very interesting. A range of tests has been done for testing that the algorithms in the program produce expected output. The sources for expected outputs are (will be) listed with the test. Primary sources for mathematical data are Wolfram Alpha and Mathematica.
+Testing for this project is focused on correctness testing, as performance testing or comparative testing would not be very interesting. A range of tests has been done for testing that the algorithms in the program produce expected output. The sources for expected outputs are listed with the test. Primary sources for mathematical data are Wolfram Alpha and Mathematica.
 
 ### RSA interface
 
@@ -34,14 +34,15 @@ The test most of note is for the defactorization algorithm. As removing powers o
 
 This subpackage contains testing for primes and random prime generation.
 
-Testing if a number is prime (will be) tested by testing that a long list of prime numbers all return that they are prime, and that a long list of composites all return that they are composite.
+Testing if a number is prime is tested by testing that a long list of prime numbers all return that they are prime, and that a long list of composites all return that they are composite.
 
-Prime number generation is difficult to test, as the output is intentionally random. It (will be) tested by using the prime checking function and checking if the outputs are prime. This means these tests are only valid if the tests for the prime checking function pass. (WIP testing that the primes are different sizes in the desired way; this isn't implemented on any level rn)
+Prime number generation is difficult to test, as the output is intentionally random. It is tested by using the prime checking function and checking if the outputs are prime. This means these tests are only valid if the tests for the prime checking function pass. 
+(WIP testing that the primes are different sizes in the desired way; this isn't implemented on any level rn)
 
 ## Repeatability
 
 Instructions for repeating the tests can be found in the [User Guide](https://github.com/KyperCT/tiralabraRSA/blob/main/documentation/User%20guide.md)
 
-## Hey, where are the graphics?
+## Hey, where are the visualizations of tests?
 
 I couldn't come up with a way to visualize these tests, sorry.
