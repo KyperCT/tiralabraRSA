@@ -7,6 +7,8 @@ def text_to_integer(text):
     :param text: String of ASCII letters
     :return: Integer representation of input string
     """
+    if text == "":
+        return text_to_integer(" ")
     return int('1' + "".join(
         list(map((lambda x: str(ord(x)).zfill(3)), text))
     ))
