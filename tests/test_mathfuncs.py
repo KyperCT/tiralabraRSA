@@ -4,6 +4,9 @@ import unittest
 
 
 class TestEulerfunc(unittest.TestCase):
+    """
+    Correct outputs are sourced from Wolfram Alpha
+    """
 
     def test_extended_gcd_correct_output(self):
         e = 65537
@@ -24,6 +27,10 @@ class TestEulerfunc(unittest.TestCase):
 
 
 class TestFactor(unittest.TestCase):
+    """
+    First 2 tests correct answer calculated by hand
+    Last test tests mathematical property (reversing the decomposition leads to input).
+    """
     def test_fo2_on_power_of_2(self):
         self.assertEqual(mf.factor_out_2(512), (9, 1))
 
