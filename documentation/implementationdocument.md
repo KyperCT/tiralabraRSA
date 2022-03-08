@@ -44,7 +44,9 @@ TODO
 
 ### Time: Key generation
 
-TODO
+The first step in key generation is generating 2 large random primes. Generating these primes takes `O(k*b^4)` per prime, where b is the size of the prime in bits and k is the number of trials used in testing primality. We generate 2 primes, so `O(2* k*b^4)`. Most operations in the algorithm are `O(1)`, except for gcd and extended gcd, which are `O(h)` in the best case and `O(h^2)` in the worst case, where h is the number of digits in the smaller input number.
+
+The worst case complexity would be `O(h^2*k*b^4)`. Of note however, is that the program has pre-set values for each of the variables in this complexity, making the practical complexity of the key generation constant, aka `O(1)`
 
 ### Space: Key generation
 
@@ -55,3 +57,11 @@ TODO
 [Python time complexity](https://wiki.python.org/moin/TimeComplexity)
 
 [Modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation)
+
+[Eulcidian algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm)
+
+[Extended Euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
+
+[Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
+
+
