@@ -40,7 +40,7 @@ The total time complexity is `O(n)+O(log(e)*n^2)=O(n+log(e)*n^2)`
 
 ### Space: decryption
 
-TODO
+As with encryption, the space complexity of decryption is linear, as the operations at their worst only multiply the amount of space used compared to input by constant values, in simmilar ways to encryption. The spacial complexity is thus `O(n)`
 
 ### Time: Key generation
 
@@ -64,4 +64,4 @@ Generating primes with Miller Rabin uses a linear amount of space relative to it
 
 [Miller-Rabin primality test](https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test)
 
-
+[RSA (cryptosystem)](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
