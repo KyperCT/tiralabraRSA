@@ -50,7 +50,7 @@ The worst case complexity would be `O(h^2*k*b^4)`. Of note however, is that the 
 
 ### Space: Key generation
 
-TODO
+Generating primes with Miller Rabin uses a linear amount of space relative to its input, so it is `O(n)`. The key generation algorithm also uses an amount of space linearly dependant of the size of the input primes, so it too is `O(n)`. So the total space complexity `O(n)+O(n)=O(n)`.
 
 ## Sources
 
