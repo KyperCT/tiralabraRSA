@@ -52,6 +52,13 @@ The worst case complexity would be `O(h^2*k*b^4)`. Of note however, is that the 
 
 Generating primes with Miller Rabin uses a linear amount of space relative to its input, so it is `O(n)`. The key generation algorithm also uses an amount of space linearly dependant of the size of the input primes, so it too is `O(n)`. So the total space complexity `O(n)+O(n)=O(n)`.
 
+## Flaws and improvements
+From an encryption standpoint, the program has 2 key flaws: The primes are of the same size, which makes them calculable, and the messages have no randomization, which makes the code predictable in long patterns. The first flaw has a relatively simple fix, however I did not have time to fix it. The second flaw would've needed much more work.
+
+For improvements that aren't explicit faults, encrypting a larger set of filetypes and characters would've been good, as now the program only handles a relatively small set of characters.
+
+While not explicitly an implementation detail, it is also of note that external verification of keys was not something I could find a way to accomplish, meaning from an actual security standpoint there is a heightned degree of trust required in the implementations being correct.
+
 ## Sources
 
 [Python time complexity](https://wiki.python.org/moin/TimeComplexity)
