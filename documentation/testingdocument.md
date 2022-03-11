@@ -52,7 +52,7 @@ This subpackage contains testing for primes and random prime generation.
 Testing if a number is prime is tested by testing that a long list of prime numbers all return that they are prime, and that a long list of composites all return that they are composite.
 
 Prime number generation is difficult to test, as the output is intentionally random. It is tested by using the prime checking function and checking if the outputs are prime. This means these tests are only valid if the tests for the prime checking function pass. 
-(WIP testing that the primes are different sizes in the desired way; this isn't implemented on any level rn)
+
 
 ## Repeatability
 
