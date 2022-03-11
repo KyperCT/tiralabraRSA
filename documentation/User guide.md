@@ -2,6 +2,8 @@
 
 ### Setting up
 
+**NOTE:** `python` and `pip` in this guide reference the python 3 versions. If your machine has python 2 installed these commands may have the names `python3` and `pip3` outside a virtual enviroment.
+
 This project is implemented as a Python package, and is easiest to run by installing the package into a virtual enviroment.
 
 You can refresh on how to create and access virtual enviroments here:
@@ -10,7 +12,7 @@ You can refresh on how to create and access virtual enviroments here:
 
 If you only want to use the package, and not run tests, you can install the package with the command:
 ```
-pip install git+https://github.com/KyperCT/tiralabraRSA.git#egg=tirarsa
+pip install git+https://github.com/KyperCT/tiralabraRSA.git#egg=rsautility
 ```
 
 If you also want to run the tests, clone the git repository:
