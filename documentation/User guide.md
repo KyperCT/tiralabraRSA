@@ -21,7 +21,7 @@ git clone https://github.com/KyperCT/tiralabraRSA.git
 ```
 And install the package:
 ```
-pip install tiralabraRSA
+pip install tiralabraRSA/
 ```
 or
 ```
